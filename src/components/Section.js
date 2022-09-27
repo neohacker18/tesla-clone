@@ -8,7 +8,7 @@ function Section({title,description,backgroundImg,leftBtnText,rightBtnText}) {
       <Fade bottom>
         <ItemText>
           <h1>{title}</h1>
-          <p>{description}</p>
+          <p>Order Online for <span id="touch">Touchless Delivery</span></p>
         </ItemText>
       </Fade>
       <Buttons>
@@ -40,7 +40,6 @@ function Section({title,description,backgroundImg,leftBtnText,rightBtnText}) {
 }
 
 export default Section;
-// background: url("/images/model-s.jpg");
 
 const Wrap = styled.div`
   width: 100vw;
@@ -57,6 +56,9 @@ const Wrap = styled.div`
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  h1{
+    font-size: 3rem;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -68,17 +70,18 @@ const ButtonGroup = styled.div`
 `;
 const LeftButton = styled.div`
   background-color: rgba(23, 26, 32, 0.8);
-  height: 40px;
+  height: 38px;
   width: 256px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100px;
+  border-radius: 7px;
   opacity: 0.85;
   font-size: 12px;
   cursor: pointer;
   margin: 8px;
+  font-weight: 600;
 `;
 
 const RightButton = styled(LeftButton)`
