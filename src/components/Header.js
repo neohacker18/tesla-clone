@@ -4,19 +4,21 @@ import {selectCars} from '../features/car/carSlice'
 import { useSelector } from 'react-redux';
 
 function Header() {
-  const [burgerStatus,setBurgerStatus]=useState(false);
+  const [burgerStatus,setBurgerStatus]=useState(true);
   const cars=useSelector(selectCars);
   console.log(cars);
 
   return (       
     <Container>
         <a>
-          <img src="/images/logo.svg" alt="Tesla" />
+          <img src="/images/logo.svg" alt="Tesla" width="110px"/>
         </a>
         <Menu>
           {cars && cars.map((car,index)=>(
             <a key={index} href="#">{car}</a>
-          ))}
+            ))}
+            <a href="#">Solar Roof</a>
+            <a href="#">Solar Panels</a>
         </Menu>
         <RightMenu>
           <a href="#">Shop</a>
@@ -60,6 +62,9 @@ const Container = styled.div`
   left: 0;
   right: 0;
   z-index: 1;
+  a{
+    cursor: pointer;
+  }
 `
 
 const Menu = styled.div`
@@ -69,11 +74,11 @@ const Menu = styled.div`
   flex: 1;
   a{
     font-weight: 600;
-    text-transform: uppercase;
     padding: 0 10px;
+    color: #353536;
     flex-wrap: nowrap;
   }
-  @media(max-width: 768px){
+  @media(max-width: 900px){
     display: none; 
   }
   `
@@ -83,8 +88,8 @@ const Menu = styled.div`
   align-items: center;
   a{
     font-weight: 600;
-    text-transform: uppercase;
     margin-right: 10px;
+    color: #353536;
   }
 `
 
@@ -106,7 +111,7 @@ const BurgerNav=styled.div`
   flex-direction: column;
   text-align: left;
   transform: ${props=>props.show?`translatex(100%)`:`translateX(0)`}; 
-  transition: transform 0.2s ease-in;
+  transition: transform 0.3s ease-in;
   li{
     padding: 15px 0px;
     border-bottom: 1px solid rgba(0,0,0,.2);
@@ -115,7 +120,6 @@ const BurgerNav=styled.div`
     font-weight: 600;
   }
 `
-  
 const CustomClose=styled.div`
   cursor: pointer;
 `
